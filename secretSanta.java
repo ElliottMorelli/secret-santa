@@ -1,4 +1,5 @@
-//package com.mkyong;
+//Authors: Gabriella Morelli, Mkyong. Jan 05, 2020
+// Sending email API adopted from: https://www.mkyong.com/java/javamail-api-sending-email-via-gmail-smtp-example/
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -7,12 +8,15 @@ import java.util.Properties;
 import java.io.*;
 import java.util.*;
 
-public class sendFinal {
+public class secretSanta {
 
     public static void main(String[] args) {
-
-        final String username = "ellamorelli0@gmail.com";
-        final String password = "Iamnotafrog45";
+	
+	//Using a gmail account as an SMPT server. In order to run this you have to
+	//go into your account settings and allow less secure apps to login to your account.
+	//This will not work if you have two-factor authentication enabled.
+        final String username = "youremail0@gmail.com";
+        final String password = "password";
 
         Properties prop = new Properties();
 		prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -38,7 +42,8 @@ public class sendFinal {
 			List<String> friends = new ArrayList<String>();
 			List<List<String>> combos = new ArrayList<List<String>>();
 			List<String> emails = new ArrayList<String>();
-		    //reading in friends list
+		
+		    	//reading in friends list
 			while(s.hasNextLine()) {
 				friends.add(s.nextLine());
 			}
@@ -73,23 +78,16 @@ public class sendFinal {
 				int lastIndex = (friends.size()-1);
 				String last = friends.get(lastIndex);
 
-				System.out.println("moving to first: " + last);
+				//below print statements are for testing
+				//System.out.println("moving to first: " + last);
 
 				friends.add(0, last);
-				System.out.println("being removed: " + friends.get(lastIndex));
+				//System.out.println("being removed: " + friends.get(lastIndex));
 				friends.remove(friends.size()-1);
 						
 				List<String> next = copyArrayList(friends);
 				combos.add(next);
 			}
-
-			/*for(List<String> a: combos){
-				System.out.println("next list:");
-
-				for(String inner: a){
-					System.out.println(inner);
-				}
-			}*/
 
 			for(int i = 0; i < choose.size(); i++){
 
@@ -106,7 +104,7 @@ public class sendFinal {
 					
 					//String result = "";
 					Message message = new MimeMessage(session);
-            		message.setFrom(new InternetAddress("ellamorelli0@gmail.com"));
+            		message.setFrom(new InternetAddress("youremail@gmail.com"));
             		message.setRecipients(
                     	Message.RecipientType.TO,
                     	InternetAddress.parse(eRec)
