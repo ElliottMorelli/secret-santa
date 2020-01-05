@@ -12,7 +12,7 @@ public class secretSanta {
 
     public static void main(String[] args) {
 	
-	//Using a gmail account as an SMPT server. In order to run this you have to
+	//Using a gmail account as an SMTP server. In order to run this you have to
 	//go into your account settings and allow less secure apps to login to your account.
 	//This will not work if you have two-factor authentication enabled.
         final String username = "youremail0@gmail.com";
